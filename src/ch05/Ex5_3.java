@@ -17,7 +17,7 @@ public class Ex5_3 {
 			}
 		} // end of for
 		System.out.println("최대값: " + max);
-		System.out.println("최소값: " + min);
+		System.out.println("최소값: " + min); 
 	}
 
 }
