@@ -45,7 +45,7 @@ class Buyer2 {			  // 고객, 물건을 사는 사람
 		cart[i++] = p;                // 제품을 Product[] cart에 저장한다.
 		System.out.println(p + "을/를 구입하셨습니다.");
 	}
-// 뒷 페이지에 계속됩니다.
+
 	void summary() {	              // 구매한 물품에 대한 정보를 요약해서 보여 준다.
 		int sum = 0;                 // 구입한 물품의 가격합계
 		String itemList ="";         // 구입한 물품목록

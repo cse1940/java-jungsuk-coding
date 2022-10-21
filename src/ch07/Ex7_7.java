@@ -35,3 +35,9 @@ class FireEngine extends Car { // 소방차
 		System.out.println("water!!");
 	}
 }
+
+//	Q. 참조변수의 형변환은 왜 하나요?
+//	A. 참조변수(리모컨)를 변경함으로써 사용할 수 있는 멤버의 갯수를 조절하기 위해서
+
+// 	Q. instanceof연산자는 언제 사용하나요?
+//	A. 참조변수를 형변환하기 전에 형변환 가능여부를 확인할 때

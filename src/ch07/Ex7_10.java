@@ -3,7 +3,15 @@ package ch07;
 public class Ex7_10 {
 	public static void main(String[] args) {
 		Unit[] group = { new Marine(), new Tank(), new Dropship() };
-
+//		Unit[] group = new Unit[3];
+//		group[0] = new Marine();
+//		group[1] = new Tank();
+//		group[2] = new Dropship();
+		
+//		group의 타입은 Unit[], group[0], group[1], group[2]의 타입은 Unit
+//		group[0].move(100, 200); -> Marine객체의 move(100, 200)을 호출
+//		group[1].move(100, 200); -> Tank객체의 move(100, 200)을 호출
+//		group[2].move(100, 200); -> Dropship객체의 move(100, 200)을 호출
 		for (int i = 0; i < group.length; i++)
 			group[i].move(100, 200);
 	}
