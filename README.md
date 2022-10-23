@@ -300,6 +300,137 @@ final int MAX = 3;
 MAX = 10; // error
 ```
 
+## Chapter 4. 조건문과 반복문
+
+### 1. 조건문(if, switch)
+
+#### 1.1 조건문 - if, switch
+
+- 조건문은 조건식과 실행될 하나의 문장 또는 블럭{}으로 구성
+
+  ```java
+  if(조건식) {
+      문장들
+  }
+  ```
+
+- Java에서 조건문은 if문과 switch문 두 가지 뿐이다.
+- if문이 주로 사용되며, 경우의 수가 많은 경우 switch문을 사용할 것을 고려한다.
+- 모든 switch문은 if문으로 변경이 가능하지만, if문은 switch문으로 변경할 수없는 경우가 많다.
+
+#### 1.2 if문
+
+- if문은 if, if-else, if-else if의 세가지 형태가 있다.
+- 조건식의 결과는 반드시 true 또는 false이어야 한다.
+
+```java
+if(score >= 90) {
+    System.out.println("A등급");
+} else if(score >= 80) {
+    System.out.println("B등급");
+} else if(score >= 70) {
+    System.out.println("C등급");
+} else {
+    System.out.println("F등급");
+}
+```
+
+#### 1.3 중첩 if문
+
+- if문 안에 또 다른 if문을 중첩해서 넣을 수 있다.
+- if문의 중첩횟수에는 거의 제한이 없다.
+
+```java
+if(score >= 90) { // score가 90점 보다 같거나 크면 A학점
+	grade = "A";
+	
+    if(score >= 98) { // 90점 이상 중에서도 98점 이상은 A+
+        grade += "+"; // grade = grade + "+";
+    } else if(score < 94) {
+        grade += "-";
+    }
+} else if(score >= 80) { // score가 80점 보다 같거나 크면 B학점
+    grade = "B";
+    
+    if(score >= 88) {
+        grade += "+";
+    } else if(score < 84) {
+        grade += "-";
+    }
+} else { // 나머지는 C학점
+    grade = "C";
+}
+```
+
+#### 1.4 switch문
+
+- if문의 조건식과 달리, 조건식의 계산결과가 int타입의 정수와 문자열만 가능
+- 조건식의 계산결과가 일치하는 case문으로 이동 후 break문을 만날 때까지 문장들을 수행한다.(break문이 없으면 switch문의 끝까지 진행한다.)
+- 일치하는 case문의 값이 없는 경우 default문으로 이동한다.(default문 생략가능)
+- case문의 값으로 변수를 사용할 수 없다.(리터럴, 상수, 문자열 상수만 가능)
+
+```java
+int level = 3;
+
+switch(level) {
+    case 3 :
+        grantDelete(); // 삭제권한을 준다.
+    case 2 :
+        grantWrite(); // 쓰기권한을 준다.
+    case 1 :
+        grantRead(); // 읽기권한을 준다.
+}
+```
+
+#### 1.5 중첩 switch문
+
+- switch문 안에 또 다른 switch문을 중첩해서 넣을 수 있다.
+- switch문의 중첩횟수에는 거의 제한이 없다.
+
+#### 1.6 if문과 switch문의 비교
+
+- if문이 주로 사용되며, 경우의 수가 많은 경우 switch문을 사용할 것을 고려한다.
+- 모든 switch문은 if문으로 변경이 가능하지만, if문은 switch문으로 변경할 수 없는 경우가 많다.
+- if문 보다 switch문이 더 간결하고 효율적이다.
+
+```java
+if(num==1) {
+    System.out.println("SK");
+} else if(num==6) {
+    System.out.println("KTF");
+} else if(num==9) {
+    System.out.println("LG");
+} else {
+    System.out.println("UNKNOWN");
+}
+```
+
+```java
+switch(num) {
+    case 1:
+        System.out.println("SK");
+        break;
+    case 2:
+        System.out.println("KTF");
+        break;
+    case 3:
+        System.out.println("LG");
+        break;
+    default:
+        System.out.println("UNKNOWN");
+}
+```
+
+#### 1.7 Math.random()
+
+- Math클래스에 정의된 난수 발생함수
+- 0.0과 1.0사이의 double값을 반환한다.(0.0 <= Math.random() <= 1.0)
+
+```java
+예) 1~10범위의 임의의 정수를 얻는 식 만들기
+    int score = (int)(Math.random() * 10) + 1;
+```
+
 
 
 ## Chapter 7. 객체지향개념 Ⅱ
