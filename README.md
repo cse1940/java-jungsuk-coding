@@ -1453,3 +1453,149 @@ abstract class Player {
 - 추상메서드와 상수만을 멤버로 가질 수 있다.
 - 인스턴스를 생성할 수 없고, 클래스 작성에 도움을 줄 목적으로 사용된다.
 - 미리 정해진 규칙에 맞게 구현하도록 표준을 제시하는데 사용된다.
+
+#### 7.2 인터페이스의 작성
+
+- ```class```대신 ```interface```를 사용한다는 것 외에는 클래스 작성과 동일하다.
+
+```java
+interface 인터페이스이름 {
+    public static final 타입 상수이름 = 값;
+    public abstract 메서드이름(매개변수목록);
+}
+```
+
+- 하지만, 구성요소(멤버)는 추상메서드와 상수만 가능하다.
+
+```java
+- 모든 멤버변수는 public static final 이어야 하며, 이를 생략할 수 있다.
+- 모든 메서드는 public abstract 이어야 하며, 이를 생략할 수 있다.
+    
+interface PlayingCard {
+    public static final int SPADE = 4; 
+    final int DIAMOND = 3;				// public static final int DIAMOND = 3;
+    static int HEART = 2;				// public static final int HEART = 2;
+    int CLOVER = 1;						// public static final int CLOVER = 1;
+    
+    public abstract String getCardNumber();
+    String getCardKind();				// public abstract String getCardKind();
+}
+```
+
+#### 7.3 인터페이스의 상속
+
+- 인터페이스도 클래스처럼 상속이 가능하다.(클래스와 달리 다중상속 허용)
+- 인터페이스는 Object클래스와 같은 최고 조상이 없다.
+
+#### 7.4 인터페이스의 구현
+
+- 인터페이스를 구현하는 것은 클래스를 상속받는 것과 같다. 다만 ```extends``` 대신 ```implements```를 사용한다.
+
+```java
+class 클래스이름 implements 인터페이스이름 {
+    // 인터페이스에 정의된 추상메서드를 구현해야 한다.
+}
+```
+
+- 인터페이스에 정의된 추상메서드를 완성해야 한다.
+- 상속과 구현이 동시에 가능하다.
+
+```java
+class Fighter extends Unit implements Fightable {
+    public void move(int x, int y) { // 내용 생략 }
+    public void attack(Unit u) { // 내용 생략 }
+}
+```
+
+#### 7.5 인터페이스를 이용한 다형성
+
+- 인터페이스 타입의 변수로 인터페이스를 구현한 클래스의 인스턴스를 참조할 수 있다.
+
+```java
+Fighter f = new Fighter();
+Fightable f = new Fighter();
+```
+
+- 인터페이스를 메서드의 매개변수 타입으로 지정할 수 있다.
+
+```java
+void attack(Fightabel f) { // Fightable인터페이스를 구현한 클래스의 인스턴스를 매개변수로 받는 메서드
+	...
+}
+```
+
+- 인터페이스를 메서드의 리턴타입으로 지정할 수 있다.
+
+```java
+Fightable method() { // Fightable인터페이스를 구현한 클래스의 인스턴스를 반환
+    ...
+    return new Fighter();
+}
+```
+
+#### 7.6 인터페이스의 장점
+
+1. 개발시간을 단축시킬 수 있다.
+2. 표준화가 가능하다.
+3. 서로 관계없는 클래스들에게 관계를 맺어줄 수 있다.
+4. 독립적인 프로그래밍이 가능하다.
+
+#### 7.7 인터페이스의 이해
+
+- 인터페이스는..
+
+  - 두 대상(객체) 간의 '연결, 대화, 소통'을 돕는 ```중간 역할```을 한다.
+  - 선언(설계)와 구현을 분리시키는 것을 가능하게 한다.
+
+  ```java
+  class B {
+      public void method() {
+          System.out.println("methodInB");
+      }
+  }
+  ```
+
+  ```java
+  interface I {
+      public void method();
+  }
+  
+  class B implements I {
+      public void method() {
+          System.out.println("methodInB");
+      }
+  }
+  ```
+
+- 인터페이스를 이해하려면 먼저 두 가지를 기억하자.
+  1. 클래스를 사용하는 쪽(User)과 클래스를 제공하는 쪽(Provider)이 있다.
+  2. 메서드를 사용(호출)하는 쪽(User)에서는 사용하려는 메서드(Provider)의 선언부만 알면 된다.
+
+#### 7.8 디폴트 메서드(default method)
+
+- 인터페이스에 새로운 메서드(추상 메서드)를 추가하면?
+
+  이 인터페이스를 구현한 기존의 모든 클래스가 이 메서드를 구현해야 함
+
+- 이 문제를 해결하기 위해 ```디폴트 메서드```를 고안
+
+- 디폴트 메서드는 추상 메서드의 기본 구현을 제공한다. 그래서 몸통{}을 가지고 있으며, 앞에 ```default```를 붙이고 항상 public이다. (생략 가능)
+
+```java
+interface MyInterface { 
+	void method();
+	void newMethod(); // 추상 메서드
+}
+```
+
+```java
+interface MyInterface {
+    void method();
+    default void newMethod() {}
+}
+```
+
+1. 여러 인터페이스의 디폴트 메서드 간의 충돌
+   - 인터페이스를 구현한 클래스에서 디폴트 메서드를 오버라이딩해야 한다.
+2. 디폴트 메서드와 조상 클래스의 메서드 간의 충돌
+   - 조상 클래스의 메서드가 상속되고, 디폴트 메서드는 무시된다.
