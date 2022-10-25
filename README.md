@@ -1599,3 +1599,86 @@ interface MyInterface {
    - 인터페이스를 구현한 클래스에서 디폴트 메서드를 오버라이딩해야 한다.
 2. 디폴트 메서드와 조상 클래스의 메서드 간의 충돌
    - 조상 클래스의 메서드가 상속되고, 디폴트 메서드는 무시된다.
+
+### 8. 내부 클래스(inner class)
+
+#### 8.1 내부 클래스란?
+
+- 클래스 안에 선언된 클래스
+- 특정 클래스 내에서만 주로 사용되는 클래스를 내부 클래스로 선언한다.
+- GUI어플리케이션의 이벤트처리에 많이 사용된다.
+
+```java
+class A { // B의 외부 클래스
+    ...
+    class B { // A의 내부 클래스
+        ...
+    }
+}
+```
+
+- 내부 클래스의 장점
+  1. 내부 클래스에서 외부 클래스의 멤버들을 쉽게 접근할 수 있다.
+  2. 코드의 복잡성을 줄일 수 있다. (캡슐화)
+
+#### 8.2 내부 클래스의 종류와 특징
+
+- 내부 클래스의 종류는 변수의 선언위치에 따른 종류와 동일하다.
+- 유효범위와 성질도 변수와 유사하므로 비교해보면 이해하기 쉽다.
+
+|   내부 클래스   |                            특 징                             |
+| :-------------: | :----------------------------------------------------------: |
+| 인스턴스 클래스 | 외부 클래스의 멤버변수 선언위치에 선언하며, 외부 클래스의 인스턴스멤버처럼 다루어진다. 주로 외부 클래스의 인스턴스멤버들과 관련된 작업에 사용될 목적으로 선언된다. |
+|  스태틱 클래스  | 외부 클래스의 멤버변수 선언위치에 선언하며, 외부 클래스의 static멤버처럼 다루어진다. 주로 외부 클래스의 static멤버, 특히 static메서드에서 사용될 목적으로 선언된다. |
+|   지역 클래스   | 외부 클래스의 메서드나 초기화블럭 안에 선언하며, 선언된 영역 내부에서만 사용될 수 있다. |
+|   익명 클래스   | 클래스의 선언과 객체의 생성을 동시에 하는 이름없는 클래스(일회용) |
+
+#### 8.3 내부 클래스의 제어자와 접근성
+
+- 내부 클래스의 접근제어자는 변수에 사용할 수 있는 접근제어자와 동일하다
+
+```java
+class Outer {
+    private int iv = 0;
+    protected static int cv = 0;
+    
+    void myMethod() {
+        int iv = 0;
+    }
+}
+```
+
+```java
+class Outer {
+    private class InstanceInner { }
+    protected static class StaticInner { }
+    
+    void myMethod() {
+        class LocalInner { }
+    }
+}
+```
+
+- static클래스만 static멤버를 정의할 수 있다.
+
+```java
+class InnerEx1 {
+    class InstanceInner {
+        int iv = 100;
+//      static int cv = 100; // error, static변수를 선언할 수 없다.
+        final static in CONST = 100; // final static은 상수이므로 허용한다.
+    }
+    static class StaticInner {
+        int iv = 200;
+        static int cv = 200;
+    }
+    void myMethod() {
+        class LocalInner {
+            int iv = 300;
+//          static int cv = 300; // error, static변수를 선언할 수 없다.
+            final static int CONST = 300; // final static은 상수이므로 허용한다.
+        }
+    }
+}
+```
+
