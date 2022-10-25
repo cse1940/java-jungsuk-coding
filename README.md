@@ -1682,3 +1682,58 @@ class InnerEx1 {
 }
 ```
 
+- 내부 클래스도 외부 클래스의 멤버로 간주되며, 동일한 접근성을 갖는다.
+- 외부 클래스의 지역변수는 final이 붙은 변수(상수)만 접근가능하다. 지역 클래스의 인스턴스가 소멸된 지역변수를 참조할 수 있기 때문이다.
+
+```java
+class Outer {
+    private int outerIv = 0;
+    private int outerCv = 0;
+    
+    class InstanceInner {
+        int iiv = outerIv; // 외부 클래스의 private멤버도 접근가능하다.
+        int iiv2 = outerCv;
+    }
+    
+    static class StaticInner {
+//	스태틱 클래스는 외부 클래스의 인스턴스멤버에 접근할 수 없다.
+//		int siv = outerIv;
+        static int scv = outerCv;
+    }
+    
+    void myMethod() {
+        int lv = 0;
+        final int LV = 0; // final 생략 가능
+        
+        class LocalInner {
+            int liv = outerIv;
+            int liv2 = outerCv;
+//	외부 클래스의 지역변수는 fianl이 붙은 변수(상수)만 접근가능하다.
+//			int liv3 = lv; -> error
+        	int liv4 = Lv;
+        }
+    }
+}
+```
+
+#### 8.4 익명 클래스(anonymous class)
+
+- 이름이 없는 일회용 클래스, 선언과 생성을 동시에, 하나의 객체만 생성가능
+
+```java
+class InnerEx6 {
+    Object iv = new Object() {
+        void method() {}
+    }; // 익명클래스
+    static Object cv = new Object() {
+        void method() {}
+    }; // 익명클래스
+    
+    void myMethod() {
+        Object lv = new Object() {
+            void method() {}
+        }; // 익명클래스
+    }
+}
+```
+
