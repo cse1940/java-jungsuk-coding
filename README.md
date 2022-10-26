@@ -1763,3 +1763,22 @@ class InnerEx6 {
 ```
 
 [참고] 에러와 예외는 모두 실행 시(runtime) 발생하는 오류이다.
+
+#### 1.3 예외처리구문 - ```try-catch```
+
+- 예외를 처리하려면 try-catch문을 사용해야 한다.
+
+```java
+try {
+    // 예외가 발생할 가능성이 있는 문장들을 넣는다.
+} catch(Exception1 e1) {
+    // Exception1이 발생했을 경우, 이를 처리하기 위한 문장을 적는다.
+} catch(Exception2 e2) {
+    // Exception2가 발생했을 경우, 이를 처리하기 위한 문장을 적는다.
+} catch(ExceptionN eN) {
+    // ExceptionN이 발생했을 경우, 이를 처리하기 위한 문장을 적는다.
+}
+```
+
+[참고] if문과 달리 try블럭이나 catch블럭 내에 포함된 문장이 하나라고 해서 괄호{}를 생략할 수는 없다.
+
