@@ -1737,3 +1737,16 @@ class InnerEx6 {
 }
 ```
 
+## Chapter 8. 예외처리(exception handling)
+
+### 1. 예외처리
+
+#### 1.1 프로그램 오류
+
+- 컴파일 에러(complie-time error)와 런타임 에러(runtime error)
+  1. 컴파일 에러 - 컴파일할 때 발생하는 에러
+  2. 런타임 에러 - 실행할 때 발생하는 에러
+  3. 논리적 에러 - 의도와 다르게 동작(실행시)
+- Java의 런타임 에러 - 에러(error)와 예외(exception)
+  1. 에러(error) - 프로그램 코드에 의해서 수습될 수 없는 심각한 오류
+  2. 예외(exception) - 프로그램 코드에 의해서 수습될 수 있는 다소 미약한 오류
