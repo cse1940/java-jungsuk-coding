@@ -11,6 +11,6 @@ public class Ex8_2 {
             System.out.println(3);
         } // try-catch의 끝
         System.out.println(4);
-    } // main메서드의 끝
+    } // main메서드의 끝 
 
 }
