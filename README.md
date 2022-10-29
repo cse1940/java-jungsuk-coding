@@ -1828,3 +1828,87 @@ printStackTrace() - 예외발생 당시의 호출스택(Call Stack)에 있었던
 getMessage() - 발생한 예외클래스의 인스턴스에 저장된 메시지를 얻을 수 있다.
 ```
 
+#### 1.8 finally블럭
+
+- 예외의 발생여부와 관계없이 실행되어야 하는 코드를 넣는다.
+
+- 선택적으로 사용할 수 있으며, try-catch-finally의 순서로 구성된다.
+
+- 예외 발생시, try -> catch -> finally의 순서로 실행되고
+
+  예외 미발생시, try -> finally의 순서로 실행된다.
+
+- try 또는 catch블럭에서 return문을 만나도 finally블럭은 수행된다.
+
+```java
+try {
+    // 예외가 발생할 가능성이 있는 문장들을 넣는다.
+} catch(Exception e) {
+    // 예외처리를 위한 문장을 적는다.
+} finally {
+    // 예외의 발생여부에 관계없이 항상 수행되어야하는 문장들을 넣는다.
+    // finally블럭은 try-catch문의 맨 마지막에 위치해야 한다.
+}
+```
+
+#### 1.9 메서드에 예외 선언하기
+
+- 예외를 처리하는 또 다른 방법
+- 사실은 예외를 처리하는 것이 아니라, 호출한 메서드로 전달해주는 것
+- 호출한 메서드에서 예외처리를 해야만 할 때 사용
+
+```java
+void method() throws Exception1, Exception2, .. ExceptionN {
+    // 메서드의 내용
+}
+```
+
+[참고] 예외를 발생시키는 키워드 throw와 예외를 메서드에 선언할 때 쓰이는 throws를 잘 구별하자.
+
+#### 1.10 예외 되던지기(re-throwing)
+
+- 예외를 처리한 후에 다시 예외를 생성해서 호출한 메서드로 전달하는 것
+- 예외가 발생한 메서드와 호출한 메서드, 양쪽에서 예외를 처리해야 하는 경우에 사용
+
+#### 1.11 사용자정의 예외 만들기
+
+- 기존의 예외 클래스를 상속받아서 새로운 예외 클래스를 정의할 수 있다.
+
+```java
+class MyException extends Exception {
+    MyException(String msg) { // 문자열을 매개변수로 받는 생성자
+    	super(msg); // 조상인 Exception클래스의 생성자를 호출한다.
+    }
+}
+```
+
+- 에러코드를 저장할 수 있게 ERR_CODE와 getErrCode()를 멤버로 추가
+
+#### 1.12 연결된 예외(chained exception)
+
+- 예외 A가 예외 B를 발생시켰다면, A를 B의 '원인 예외'라고 한다.
+
+```java
+Throwable initCause(Throwable cause)	지정한 예외를 원인 예외로 등록
+Throwable getCause()					원인 예외로 반환
+```
+
+- SpaceException이 발생했을 때, 이를 원인예외로 하는 InstallException을 발생시키는 방법(호출한 쪽에서는 InstallException으로 처리)
+
+[이유1] 여러 예외를 큰 분류의 예외로 묶을 때, 연결된 예외로 처리
+
+​	SpaceException, MemoryException은 모두 설치시 발생하는 예외이므로 InstallException(큰 분류의 예외)로 묶어서 처리하는 것이 편리할 때가 있음.
+
+​	[참고] 상속으로 처리하면, 상속관계도 변경해야 하고 실제로 발생한 예외를 알 수 없다는 단점이 있다.
+
+[이유2] 필수 예외(Exception자손)를 선택 예외(RuntimeException)로 바꿀 때
+
+## Chapter 9. java.lang 패키지
+
+### 1. Object클래스
+
+#### 1.1 Object클래스의 메서드
+
+- 모든 클래스의 최고 조상, 오직 11개의 메서드만을 가지고 있다.
+- notify(), wait() 등은 쓰레드와 관련된 메서드이다.
+- equals(), hashCode(), toString()은 적절히 오버라이딩해야 한다.
