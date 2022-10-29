@@ -1953,3 +1953,7 @@ System.out.println(System.identityHashCode(str1)); // 3526198
 System.out.println(System.identityHashCode(str2)); // 7699183
 ```
 
+#### 1.4 toString()
+
+- 객체의 정보를 문자열(String)로 제공할 목적으로 정의된 메서드
+
