@@ -1957,3 +1957,27 @@ System.out.println(System.identityHashCode(str2)); // 7699183
 
 - 객체의 정보를 문자열(String)로 제공할 목적으로 정의된 메서드
 
+#### 1.5 getClass()
+
+- 자신이 속한 클래스의 Class객체를 빈환하는 메서드
+
+- Class객체는 클래스의 모든 정보를 담고 있으며, 클래스당 단 1개만 존재
+
+  클래스파일(*.class)이 메모리에 로드될 때 생성된다.
+
+- Class객체를 얻는 여러가지 방법
+
+```java
+Card c = new Card();
+Class cObj = c.getClass();
+```
+
+```java
+Class cObj = Card.class;
+String className = cObj.getName();
+```
+
+```java
+Class cObj = Class.forName("Card");
+```
+
