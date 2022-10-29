@@ -1912,3 +1912,17 @@ Throwable getCause()					원인 예외로 반환
 - 모든 클래스의 최고 조상, 오직 11개의 메서드만을 가지고 있다.
 - notify(), wait() 등은 쓰레드와 관련된 메서드이다.
 - equals(), hashCode(), toString()은 적절히 오버라이딩해야 한다.
+
+#### 1.2 equals(Object obj)
+
+- 객체 자신과 주어진 객체(obj)를 비교한다. 같으면 true, 다르면 false
+- Object클래스에 정의된 equals()는 참조변수 값(객체의 주소)을 비교한다.
+
+```java
+public boolean equals(Object obj) {
+    return (this==obj);
+}
+```
+
+- equals()를 오버라이딩해서 인스턴스변수의 값을 비교하도록 바꾼다.
+
