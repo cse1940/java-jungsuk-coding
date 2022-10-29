@@ -1926,3 +1926,30 @@ public boolean equals(Object obj) {
 
 - equals()를 오버라이딩해서 인스턴스변수의 값을 비교하도록 바꾼다.
 
+#### 1.3 hashCode()
+
+- 객체의 해시코드(int타입의 정수)를 반환하는 메서드(해시함수) 
+
+  다량의 데이터를 저장&검색하는 해싱기법에 사용된다.
+
+- Object클래스의 hashCode()는 객체의 내부주소를 반환한다.
+
+- equals()를 오버라이딩하면, hashCode()도 같이 오버라이딩 해야 한다.
+
+  equals()의 결과가 true인 두 객체의 hash code는 같아야 하기 때문
+
+```java
+String str1 = new String("abc");
+String str2 = new String("abc");
+System.out.println(str1.equals(str2)); // true
+System.out.println(str1.hashCode());   // 96354
+System.out.println(str2.hashCode());   // 96354
+```
+
+- System.identityHashCode(Object obj)는 Object클래스의 hashCode()와 동일한 결과를 반환한다.
+
+```java
+System.out.println(System.identityHashCode(str1)); // 3526198
+System.out.println(System.identityHashCode(str2)); // 7699183
+```
+
