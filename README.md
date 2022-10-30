@@ -2026,3 +2026,92 @@ String s = ""; // 빈 문자열로 초기화
 char c = '';   // 공백으로 초기화
 ```
 
+#### 2.3 String클래스의 생성자와 메서드
+
+1. String(String s)
+
+   : 주어진 문자열(s)을 갖는 String인스턴스를 생성한다.
+
+   ```java
+   String s = new String("Hello"); // s = "Hello"
+   ```
+
+2. String(char[] value)
+
+   : 주어진 문자열(value)를 갖는 String인스턴스를 생성한다.
+
+   ```java
+   char[] c = {'H', 'e', 'l', 'l', 'o'};
+   String s = new String(c); // s = "Hello"
+   ```
+
+3. String(StringBuffer buf)
+
+   : StringBuffer인스턴스가 갖고 있는 문자열과 같은 내용의 String인스턴스를 생성한다.
+
+   ```java
+   StringBuffer sb = new StringBuffer("Hello");
+   String s = new String(sb); // s = "Hello"
+   ```
+
+4. char charAt(int index)
+
+   : 지정한 위치(index)에 있는 문자를 알려준다. (index는 0부터 시작)
+
+   ```java
+   String s = "Hello";
+   String n = "0123456";
+   char c = s.charAt(1);  // c = 'e'
+   char c2 = n.charAt(1); // c1 = '1'
+   ```
+
+5. String concat(String str)
+
+   : 문자열(str)을 뒤에 덧붙인다.
+
+   ```java
+   String s = "Hello";
+   String s2 = s.concat(" World"); // s2 = "Hello World"
+   ```
+
+6. boolean contains(CharSequence s)
+
+   : 지정된 문자열(s)이 포함되었는지 검사한다.
+
+   ```java
+   String s = "abcdefg";ss
+   boolean b = s.contains("bc"); // b = true
+   ```
+
+7. boolean endsWith(String suffix)
+
+   : 지정된 문자열(suffix)로 끝나는지 검사한다.
+
+   ```java
+   String file = "Hello.txt";
+   boolean b = file.endsWith("txt"); // b = true
+   ```
+
+8. boolean equals(Object obj)
+
+   : 매개변수로 받은 문자열(obj)과 String인스턴스의 문자열을 비교한다. obj가 String이 아니거나 문자열이 다르면 false를 반환한다.
+
+   ```java
+   String s = "Hello";
+   boolean b = s.equals("Hello");  // b = true
+   boolean b2 = s.equals("hello"); // b2 = false
+   ```
+
+9. boolean equalsIgnoreCase(String str)
+
+   : 문자열과 String인스턴스의 문자열을 대소문자 구분없이 비교한다.
+
+   ```java
+   String s = "Hello";
+   boolean b = s.equalsIgnoreCase("HELLO");  // b = true
+   boolean b2 = s.equalsIgnoreCase("hello"); // b2 = true 
+   ```
+
+10. int index(int ch)
+
+    : 주어진 문자(ch)가 문자열에 존재하는지 확인하여 위치(index)를 알려준다. 못 찾으면 -1을 반환다. (index )
