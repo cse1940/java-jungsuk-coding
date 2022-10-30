@@ -1981,3 +1981,48 @@ String className = cObj.getName();
 Class cObj = Class.forName("Card");
 ```
 
+### 2. String클래스
+
+#### 2.1 String클래스의 특징
+
+- 문자열 배열(char[])과 그에 관련된 메서드들이 정의되어 있다.
+- String인스턴스의 내용은 바꿀 수 없다. (immutable)
+
+```java
+String a = "a";
+String b = "b";
+String a = a + b;
+```
+
+- String str = "abc";와 String str = new String("abc");의 비교
+
+```java
+String str1 = "abc";
+String str2 = "abc";
+String str3 = new String("abc");
+String str4 = new String("abc");
+
+System.out.println(str1 == str2);
+System.out.println(str3 == str4);
+System.out.println(str1.equals(str2));
+System.out.println(str3.equasl(str4));
+```
+
+#### 2.2 빈 문자열("", empty string)
+
+- 내용이 없는 문자열, 크기가 0인 char형 배열을 저장하는 문자열
+- 크기가 0인 배열을 생성하는 것은 어느 타입이나 가능
+
+```java
+char[] cArr = new char[0]; // 크기가 0인 char배열
+int[] iArr = {};		   // 크기가 0인 int배열
+```
+
+- String str = "";은 가능해도 char c = '';는 불가능
+- String은 참조형의 기본값인 null 보다 빈 문자열로 초기화하고 char형은 기본값인 '\u0000'보다 공백으로 초기화하자.
+
+```java
+String s = ""; // 빈 문자열로 초기화
+char c = '';   // 공백으로 초기화
+```
+
