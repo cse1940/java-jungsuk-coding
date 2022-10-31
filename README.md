@@ -2112,6 +2112,15 @@ char c = '';   // 공백으로 초기화
    boolean b2 = s.equalsIgnoreCase("hello"); // b2 = true 
    ```
 
-10. int index(int ch)
+10. int indexOf(int ch)
 
-    : 주어진 문자(ch)가 문자열에 존재하는지 확인하여 위치(index)를 알려준다. 못 찾으면 -1을 반환다. (index )
+    : 주어진 문자(ch)가 문자열에 존재하는지 확인하여 위치(index)를 알려준다. 못 찾으면 -1을 반환다. (index)
+    
+    ```java
+    String s = "Hello";
+    int idx1 = s.indexOf('o'); // idx1 = 4
+    int idx2 = s.indexOf('k'); // idx2 = -1
+    ```
+    
+    
+
