@@ -2315,5 +2315,99 @@ int i2 = Integer.valueOf("100"); // "100"을 100으로 변환하는 방법2
 char c = "A".charAt(0); // 문자열 "A"를 문자 'A'로 변환하는 방법
 ```
 
+### 3. StringBuffer클래스
 
+#### 3.1 StringBuffer클래스의 특징
 
+- String처럼 문자형 배열(char[])을 내부적으로 가지고 있다.
+
+  그러나, String클래스와 달리 내용을 변경할 수 있다.(mutable)
+
+```java
+StringBuffer sb = new StringBuffer("abc");
+sb.append("123");
+```
+
+- 인스턴스를 생성할 때 버퍼(배열)의 크기를 충분히 지정해주는 것이 좋다.
+
+  (버퍼가 작으면 성능 저하 - 작업 중에 더 큰 배열이 추가로 생성됨)
+
+- String클래스와 달리 equals()를 오버라이딩하지 않았다는 점에 주의하기!
+
+#### 3.2 StringBuffer클래스의 생성자와 메서드
+
+1. StringBuffer()
+
+   : 16문자를 담을 수 있는 버퍼를 가진 StringBuffer 인스턴스를 생성한다.
+
+   ```java
+   StringBuffer sb = new StringBuffer(); // sb = ""
+   ```
+
+2. StringBuffer(int length)
+
+   : 지정된 개수의 문자를 담을 수 있는 버퍼를 가진 StringBuffer인스턴스를 생성한다.
+
+   ```java
+   StringBuffer sb = new StringBuffer(10); // sb = ""
+   ```
+
+3. StringBuffer(String str)
+
+   : 지정된 문자열 값(str)을 갖는 StringBuffer인스턴스를 생성한다.
+
+   ```java
+   StringBuffer sb = new StringBuffer("Hi"); // sb = "Hi"
+   ```
+
+4. StringBuffer append(boolean b)
+
+   : 매개변수로 입력된 값을 문자열로 변환하여 StringBuffer인스턴스가 저장하고 있는 문자열의 뒤에 덧붙인다.
+
+   ```java
+   StringBuffer sb = new StringBuffer("abc");
+   StringBuffer sb2 = ab.append(true);
+   // sb = "abctrued10.0ABC123"
+   // sb2 = "abctrued10.0ABC123"
+   ```
+
+5. int capacity()
+
+   : StringBuffer인스턴스의 버퍼크기를 알려준다. length()는 버퍼에 담긴 문자열의 크기를 알려준다.
+
+   ```java
+   StringBuffer sb = new StringBuffer(100);
+   sb.append("abcd");
+   int bufferSize = sb.capacity(); // bufferSize = 100
+   ```
+
+6. char charAt(int index)
+
+   : 지정된 위치(index)에 있는 문자를 반환한다.
+
+   ```java
+   StringBuffer sb = new StringBuffer("abc");
+   char c = sb.charAt(2); // c = 'c'
+   ```
+
+7. StringBuffer delete(int start, int end)
+
+   : 시작위치(start)부터 끝 위치(end) 사이에 있는 문자를 제거한다. 단, 끝 위치의 문자는 제외
+
+   ```java
+   StringBuffer sb = new StringBuffer("0123456");
+   StringBuffer sb2 = sb.delete(3, 6); 
+   // sb = "0126"
+   // sb2 = "0126"
+   ```
+
+8. StringBuffer deleteCharAt(int index)
+
+   : 지정된 위치(index)의 문자를 제거한다.
+
+   ```java
+   StringBuffer sb = new StringBuffer("0123456");
+   sb.deleteCharAt(3); // sb = "012456"
+   ```
+
+   
