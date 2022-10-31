@@ -2426,4 +2426,11 @@ sb.append("123");
     int length = sb.length(); // length = 7
     ```
 
-    
+11. StringBuffer replace(int start, int end, String str)
+
+    : 지정된 범위(start ~ end)의 문자들을 주어진 문자열로 바꾼다. end위치의 문자는 범위에 포함안됨
+
+    ```java
+    sb.replace(3, 6, "AB"); // sb = "012AB6"    "345"를 "AB"로 바꿨다.
+    ```
+
