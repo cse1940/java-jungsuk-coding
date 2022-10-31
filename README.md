@@ -2434,3 +2434,12 @@ sb.append("123");
     sb.replace(3, 6, "AB"); // sb = "012AB6"    "345"를 "AB"로 바꿨다.
     ```
 
+12. StringBuffer reverse()
+
+    : StringBuffer인스턴스에 저장되어 있는 문자열의 순서를 거꾸로 나열한다.
+
+    ```java
+    sb.reverse(); // sb = "6543210"
+    ```
+
+    
