@@ -2121,6 +2121,92 @@ char c = '';   // 공백으로 초기화
     int idx1 = s.indexOf('o'); // idx1 = 4
     int idx2 = s.indexOf('k'); // idx2 = -1
     ```
-    
+
+11. int indexOf(String str)
+
+    : 주어진 문자열이 존재하는지 확인하여 그 위치(index)를 알려준다. 없으면 -1을 반환한다. (index는 0부터 시작)
+
+    ```java
+    String s = "ABCDEFG";
+    int idx = s.indexOf("CD"); // idx = 2;
+    ```
+
+12. String intern()
+
+    : 문자열을 constant pool에 등록한다. 이미 constant pool에 같은 내용의 문자열이 있을 경우 그 문자열의 주소값을 반환한다.
+
+    ```java
+    String s = new String("abc");
+    String s2 = new String("abc");
+    boolean b = (s==s2); // b = false
+    boolean b2 = s.equals(s2); // b2 = true
+    boolean b3 = (s.intern()==s2.intern()); // b3 = true
+    ```
+
+13. int lastIndexOf(int ch)
+
+    : 지정된 문자 또는 문자코드를 문자열의 오른쪽 끝에서부터 찾아서 위치(index)를 알려준다. 못 찾으면 -1을 반환한다.
+
+    ```java
+    String s = "java.lang.Object";
+    int idx1 = s.lastIndexOf('.'); // idx1 = 9
+    int idx2 = s.indexOf('.'); // idx2 = 4
+    ```
+
+14. int lastIndexOf(String str)
+
+    : 지정된 문자열을 인스턴스의 문자열 끝에서 부터 찾아서 위치(index)를 알려준다. 못 찾으면 -1을 반환한다.
+
+    ```java
+    String s = "java.lang.Object";
+    int idx1 = s.lastIndexOf("java"); // idx1 = 10
+    int idx2 = s.indexOf("java"); // idx2 = 0
+    ```
+
+15. int length()
+
+    : 문자열의 길이를 알려준다.
+
+    ```java
+    String s = "Hello";
+    int length = s.length(); // length = 5
+    ```
+
+16. String replace(char old, char nw)
+
+    : 문자열 중의 문자(old)를 새로운 문자(nw)로 바꾼 문자열을 반환한다.
+
+    ```java
+    String s = "Hello";
+    int length = s.replace('H', 'C'); // length = "Cello"
+    ```
+
+17. String replace(CharSequence old, CharSequence nw)
+
+    : 문자열 중의 문자열(old)을 새로운 문자열(nw)로 모두 바꾼 문자열을 반환한다.
+
+    ```java
+    String s = "Hellollo";
+    String s1 = s.replace("ll", "LL"); // s1 = "HeLLoLLo"
+    ```
+
+18. String replaceAll(String regex, String replacement)
+
+    : 문자열 중에서 지정된 문자열(regex)과 일치하는 것을 새로운 문자열(replacement)로 모두 변경한다.
+
+    ```java
+    String ab = "AABBAABB";
+    String r = ab.replaceAll("BB", "bb"); // r = "AAbbAAbb"
+    ```
+
+19. String replaceFirst(String regex, String replacement)
+
+    : 문자열 중에서 지정된 문자열(regex)과 일치 하는 것 중, 첫 번째 것만 새로운 문자열(replacement)로 변경한다.
+
+    ```java
+    String ab = "AABBAABB";
+    String r = ab.replaceFirst("BB", "bb"); // r = "AAbbAABB"
+    ```
+
     
 
