@@ -2442,4 +2442,12 @@ sb.append("123");
     sb.reverse(); // sb = "6543210"
     ```
 
+13. void setCharAt(int index, char ch)
+
+    : 지정된 위치의 문자를 주어진 문자(ch)로 바꾼다.
+
+    ```java
+    sb.setCharAt(5, 'o'); // sb = "01234o6"
+    ```
+
     
