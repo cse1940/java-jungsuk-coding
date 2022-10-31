@@ -2367,8 +2367,8 @@ sb.append("123");
    ```java
    StringBuffer sb = new StringBuffer("abc");
    StringBuffer sb2 = ab.append(true);
-   // sb = "abctrued10.0ABC123"
-   // sb2 = "abctrued10.0ABC123"
+   // sb = "abctrue"
+   // sb2 = "abctrue"
    ```
 
 5. int capacity()
@@ -2379,6 +2379,7 @@ sb.append("123");
    StringBuffer sb = new StringBuffer(100);
    sb.append("abcd");
    int bufferSize = sb.capacity(); // bufferSize = 100
+   int stringSize = sb.length(); // stringSize = 4(sb에 담긴 문자열이 "abcd"이기 때문에)
    ```
 
 6. char charAt(int index)
