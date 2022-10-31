@@ -2410,4 +2410,12 @@ sb.append("123");
    sb.deleteCharAt(3); // sb = "012456"
    ```
 
+9. StringBuffer insert(int pos, boolean b)
+
+   : 두 번째 매개변수로 받은 값을 문자열로 변환하여 지정된 위치(pos)에 추가한다. pos는 0부터 시작
+
+   ```java
+   sb.insert(4, ','); // sb = "0123.456"
+   ```
+
    
