@@ -2418,4 +2418,12 @@ sb.append("123");
    sb.insert(4, ','); // sb = "0123.456"
    ```
 
-   
+10. int length()
+
+    : StringBuffer인스턴스에 저장되어 있는 문자열의 길이를 반환한다.
+
+    ```java
+    int length = sb.length(); // length = 7
+    ```
+
+    
