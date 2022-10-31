@@ -2208,5 +2208,94 @@ char c = '';   // 공백으로 초기화
     String r = ab.replaceFirst("BB", "bb"); // r = "AAbbAABB"
     ```
 
+20. String[] split(String regex)
+
+    : 문자열을 지정된 분리자(regex)로 나누어 문자열 배열에 담아 반환한다.
+
+    ```java
+    String animals = "dog,cat,bear";
+    String[] arr = animals.split(","); 
+    // arr[0] = "dog"
+    // arr[1] = "cat"
+    // arr[2] = "bear"
+    ```
+
+21. String[] split(String regex, int limit)
+
+    : 문자열을 지정된 분리자(regex)로 나누어 문자열 배열에 담아 반환한다. 단, 문자열 전체를 지정된 수(limit)로 자른다.
+
+    ```java
+    String animals = "dog,cat,bear";
+    String[] arr = animals.split(",", 2);
+    // arr[0] = "dog"
+    // arr[1] = "cat,bear"
+    ```
+
+22. boolean startsWith(String prefix)
+
+    : 주어진 문자열(prefix)로 시작하는지 검사한다.
+
+    ```java
+    String s = "java.lang.Object";
+    String b = s.startWith("java"); // b = true
+    String b2 = s.startWith("lang"); // b2 = false
+    ```
+
+23. String substring(int begin)
+
+    String substring(int begin, int end)
+
+    : 주어진 시작위치(begin)부터 끝 위치(end) 범위에 포함된 문자열을 얻는다. 이 때, 시작위치의 문자는 범위에 포함되지만, 끝 위치의 문자는 포함되지 않는다.
+
+    ```java
+    String s = "java.lang.Object";
+    String c = s.substring(10); // c = "Object"
+    String p = s.substring(5, 9); // p = "lang"
+    ```
+
+24. String toLowerCase()
+
+    : String인스턴스에 저장되어 있는 모든 문자열을 소문자로 변환하여 반환한다.
+
+    ```java
+    String s = "Hello";
+    String s1 = s.toLowerCase(); // s1 = "hello"
+    ```
+
+25. String toString()
+
+    : String인스턴스에 저장되어 있는 문자열을 반환한다.
+
+    ```java
+    String s = "Hello";
+    String s1 = s.toString(); // s1 = "Hello"
+    ```
+
+26. String toUpperCase()
+
+    : String인스턴스에 저장되어 있는 모든 문자열을 대문자로 변환하여 반환한다.
+
+    ```java
+    String s = "Hello";
+    String s1 = s.toUpperCase(); // s1 = "HELLO"
+    ```
+
+27. String trim()
+
+    : 문자열의 왼쪽 끝과 오른쪽 끝에 있는 공백을 없앤 결과를 반환한다. 이 때 문자열 중간에 있는 공백은 제거되지 않는다.
+
+    ```java
+    String s = " Hello World ";
+    String s1 = s.trim(); // s1 = "Hello World"
+    ```
+
+28. static String valueOf(boolean b)
+
+    : 지정된 값을 문자열로 변환하여 반환한다.
+
+    ```java
+    String b = String.valueOf(true); // b = "true"
+    ```
+
     
 
