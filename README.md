@@ -2297,5 +2297,23 @@ char c = '';   // 공백으로 초기화
     String b = String.valueOf(true); // b = "true"
     ```
 
-    
+#### 2.4 문자열과 기본형간의 변환
+
+- 기본형 값을 문자열로 바꾸는 두 가지 방법(방법2가 더 빠름)
+
+```java
+int i = 100;
+String str1 = i + "";				// 100을 "100"으로 변환하는 방법1
+String str2 = String.valueOf(i);    // 100을 "100"으로 변환하는 방법2
+```
+
+- 문자열을 기본형 값으로 변환하는 방법
+
+```java
+int i = Integer.parseInt("100"); // "100"을 100으로 변환하는 방법1 
+int i2 = Integer.valueOf("100"); // "100"을 100으로 변환하는 방법2
+char c = "A".charAt(0); // 문자열 "A"를 문자 'A'로 변환하는 방법
+```
+
+
 
