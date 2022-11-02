@@ -2451,4 +2451,25 @@ sb.append("123");
     sb.setCharAt(5, 'o'); // sb = "01234o6"
     ```
 
-    
+
+14. String toString()
+
+    : StringBuffer인스턴스의 문자열을 String으로 반환한다.
+
+    ```java
+    String str = sb.toString(); // str = "0123456"
+    ```
+
+15. String substring(int start)
+
+    String substring(int start, int end)
+
+    : 지정된 범위 내의 문자열을 String으로 뽑아서 반환한다. 시작위치(start)만 지정하면 시작위치부터 문자열 끝까지 뽑아서 반환한다.
+
+    ```java
+    String str = sb.substring(3); // str1 = "3456"
+    String str1 = sb.substring(3, 5); // str2 = "34"
+    ```
+
+### 4. Math & Wrapper클래스
+
