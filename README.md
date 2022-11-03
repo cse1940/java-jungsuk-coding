@@ -2576,3 +2576,62 @@ sb.append("123");
 8. List subList(int fromlndex, int tolndex)
 
    : 지정된 범위에 있는 객체를 반환한다.
+
+#### 1.5 Set인터페이스 - 순서X, 중복X
+
+- Set인터페이스의 메서드 - Collection인터페이스와 동일
+
+[참고] 집합과 관련된 메서드(Collection에 변화가 있으면 true, 아니면 false를 반환)
+
+1. boolean addAll(Collection c)
+
+   : 지정된 Collection(c)의 객체들을 Collection에 추가한다. (합집합)
+
+2. boolean containsAll(Collection c)
+
+   : 지정된 Collection의 객체들이 Collection에 포함되어 있는지 확인한다. (부분집합)
+
+3. boolean removeAll(Collection c)
+
+   : 지정된 Collection에 포함된 객체들을 삭제한다. (차집합)
+
+4. boolean retainAll(Collection c)
+
+   : 지정된 Collection에 포함된 객체만을 남기고 나머지는 Collection에서 삭제한다. (교집합)
+
+#### 1.6 Map인터페이스의 메서드 - 순서X, 중복(키X, 값O)
+
+1. void clear()
+
+   : Map의 모든 객체를 삭제한다.
+
+2. Object get(Object key)
+
+   : 지정한 key객체에 대응하는 value객체를 찾아서 반환한다.
+
+3. Set keySet()
+
+   : Map에 저장된 모든 key객체를 반환한다.
+
+#### 2.1 Vector와 ArrayList
+
+- ArrayList는 기존의 Vector를 개선한 것으로 구현원리와 기능적으로 동일하다.
+
+  Vector는 자체적으로 동기화처리가 되어 있으나 ArrayList는 그렇지 않다.
+
+- List인터페이스를 구현하므로, 저장순서가 유지되고 중복을 허용한다.
+
+- 데이터의 저장공간으로 배열을 사용한다. (배열기반)
+
+#### 2.2 ArrayList의 사용예
+
+```java
+ArrayList list = new ArrayList();
+list.add("111");
+list.add("222");
+list.add("222"); // 중복 요소 추가가능
+System.out.println(list);
+
+System.out.println("index=" + list.indexOf("111"));
+```
+
