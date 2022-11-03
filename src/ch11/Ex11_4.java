@@ -37,8 +37,8 @@ class Ex11_4 {
                     LinkedList temp = (LinkedList)q;
                     ListIterator it = temp.listIterator();
                     
-                    while(it.hasNext())
-                        System.out.println(++i + "." + it.next());
+                    while(it.hasNext()) // boolean hasNext() 읽어올 요소가 있는지 확인
+                        System.out.println(++i + "." + it.next()); // Object next() 다음 요소를 읽어옴
                 } else {
                     save(input);
                     System.out.println(input);
