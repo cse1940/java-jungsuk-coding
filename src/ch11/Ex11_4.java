@@ -51,7 +51,7 @@ class Ex11_4 {
     
     public static void save(String input) {
 //      queue에 저장한다.
-        if(!"".equals(input))
+        if(!"".equals(input)) // 입력된 값이 공백이 아니라면
             q.offer(input); // 객체 저장
 
 //      queue의 최대크기를 넘으면 제일 처음 입력된 것을 삭제한다.
