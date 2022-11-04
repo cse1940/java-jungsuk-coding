@@ -2690,3 +2690,53 @@ for(int i=list.size()-1; i>=0; i--)
 - 덱(Deque) : Stack과 Queue의 결합, 양끝에서 저장(offer)과 삭제(poll) 가능 (구현클래스 : ArrayDequq, LinkedList)
 - 우선순위 큐(PriorityQueue) : 우선순위가 높은 것부터 꺼냄(null 저장불가)
 - 블락킹 큐(BlockingQueue) : 비어 있을 때 꺼내기와, 가득 차 있을 때 넣기를 지정된 시간동안 지연시킴(block) - 멀티쓰레드
+
+#### 5.1 Enumeration, Iterator, ListIterator
+
+- 컬렉션에 ```저장된 데이터```를 접근하는데 사용되는 인퍼테이스
+- Enumeration은 Iterator의 구버전
+- ListIterator는 Iterator의 접근성을 향상시킨 것 (단방향 -> 양방향)
+
+| boolean hasNext() | 읽어 올 요소가 남아있는지 확인한다. 있으면 true, 없으면 false를 반환한다. |
+| ----------------- | ------------------------------------------------------------ |
+| Object next()     | 다음 요소를 읽어 온다. next()를 호출하기 전에 hasNext()를 호출해서 읽어 올 요소가 있는지 확인하는 것이 안전하다. |
+
+#### 5.2 Iterator
+
+- 컬렉션에 저장된 요소들을 읽어오는 방법을 표준화한 것
+- 컬렉션에 iterator()를 호출해서 Iterator를 구현한 객체를 얻어서 사용
+
+#### 5.3 ListIterator - Iteraotr의 기능을 확장(상속)
+
+- Iterator의 접근성을 향상시킨 것이 ListIterator이다. (단방향 -> 양방향)
+- listIterator()를 통해서 얻을 수 있다. (List를 구현한 컬렉션 클래스)
+
+#### 6.1 Arrays - 배열을 다루기 편리한 메서드(static) 제공
+
+1. 배열의 출력 - ```toString()```
+
+   ```java
+   static String toString(boolean[] a)
+   static String toString(byte[] a)
+   static String toString(char[] a)
+   ```
+
+2. 다차원 배열의 비교와 출력 - ```deepEquals(), deepToString(), equals()```
+
+   ```java
+   int[] arr = {0, 1, 2, 3, 4};
+   int[][] arr2D = {{11, 12}, {21, 22}};
+   
+   System.out.println(Arrays.toString(arr)); // [0, 1, 2, 3, 4]
+   System.out.println(Arrays.deepToString(arr2D)) // [[11, 12], [21, 22]]
+   ```
+
+   ```java
+   String[][] str2D = new String[][]{{"aaa", "bbb"}, {"AAA", "BBB"}};
+   String[][] str2D2 = new String[][]{{"aaa", "bbb"}, {"AAA", "BBB"}};
+   
+   System.out.println(Arrays.equals(str2D, str2D2)); // false
+   System.out.println(Arrays.deepEquals(str2D, str2D2)) // true
+   ```
+
+   
