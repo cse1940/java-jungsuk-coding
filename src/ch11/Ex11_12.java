@@ -21,7 +21,8 @@ public class Ex11_12 {
         setB.add("7"); setB.add("8");
         System.out.println("B = " + setB);
         
-//      교집합        
+//      교집합   
+//      setA.retainAll(setB);
         Iterator it = setB.iterator();
         while(it.hasNext()) {
             Object temp = it.next();
@@ -29,7 +30,8 @@ public class Ex11_12 {
                 setKyo.add(temp);
         }
 
-//      합집합
+//      차집합
+//      setA.removeAll(setB);
         it = setA.iterator();
         while(it.hasNext()) {
             Object temp = it.next();
@@ -37,7 +39,8 @@ public class Ex11_12 {
                 setCha.add(temp);
         }
  
-//      차집합
+//      합집합
+//      setA.addAll(setB);
         it = setA.iterator();
         while(it.hasNext())
             setHab.add(it.next());
