@@ -9,7 +9,7 @@ public class Ex11_11 {
         
         HashSet set = new HashSet();
         set.add("abc");
-        set.add("abc"); // Áßº¹ÀÌ¶ó ÀúÀåX
+        set.add("abc"); // ì¤‘ë³µ X
         set.add(new Person("David", 10));
         set.add(new Person("David", 10));
         
@@ -18,7 +18,7 @@ public class Ex11_11 {
 
 }
 
-//  equals()¿Í hashCode()¸¦ ¿À¹ö¶óÀÌµùÇØ¾ß HashSetÀÌ ¹Ù¸£°Ô µ¿ÀÛÇÔ
+//  equals()ë¿ë§Œ ì•„ë‹ˆë¼ hashCode()ë„ ëª©ì ì— ë§ê²Œ ì˜¤ë²„ë¼ì´ë”©í•´ì•¼ í•œë‹¤.
 class Person {
     @Override
     public int hashCode() {
