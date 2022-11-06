@@ -17,9 +17,9 @@ public class Ex11_10 {
             set.add((num));
         }
         
-        List list = new LinkedList(set); // 1. setÀÇ ¸ğµç ¿ä¼Ò¸¦ list¿¡ ÀúÀå
-        Collections.sort(list);          // 2. list¸¦ Á¤·Ä
-        System.out.println(list);        // 3. list¸¦ Ãâ·Â
+        List list = new LinkedList(set); // 1. setì„ listì— ì €ì¥
+        Collections.sort(list);          // 2. list ì •ë ¬
+        System.out.println(list);        // 3. list ì¶œë ¥
     }
 
 }
