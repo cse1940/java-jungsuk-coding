@@ -2739,4 +2739,42 @@ for(int i=list.size()-1; i>=0; i--)
    System.out.println(Arrays.deepEquals(str2D, str2D2)) // true
    ```
 
+3. 배열의 복사 - ```copyOf(), copyOfRange()```
+
+   ```java
+   int[] arr = {0, 1, 2, 3, 4};
+   int[] arr2 = Arrays.copyOf(arr, arr.length); // arr2 = [0, 1, 2, 3, 4]
+   int[] arr3 = Arrays.copyOf(arr, 7); // arr4 = [0, 1, 2, 3, 4, 0, 0]
+   
+   int[] arr5 = Arrays.copyOfRange(arr, 0, 7); // arr6 = [0, 1, 2, 3, 4, 0, 0]
+   ```
+
+4. 배열 채우기 - ```fill(), setAll()```
+
+   ```java
+   int[] arr = new int[5];
+   Arrays.fill(arr, 9); // arr = [9, 9, 9, 9, 9]
+   Arrays.setAll(arr, (i) -> (int)(Math.random()*5)+1); // arr = [1, 5, 2, 1, 1]
+   ```
+
+5. 배열을 List으로 변한 - ```asList```
+
+   ```java
+   List list = Arrays.asList(1, 2, 3, 4, 5); // list = [1, 2, 3, 4, 5]
+   list.add(6); // list의 크기를 변경할 수 없어 예외 발생
+   
+   List list = new ArrayList(Arrays.asList(1, 2, 3, 4, 5)); // 변경가능한 ArrayList생성
+   ```
+
+6. 배열의 정렬과 검색 - ```sort(), binarySearch()```
+
+   ```java
+   int[] arr = {3, 2, 0, 1, 4}; // 정렬되지 않은 배열
+   int idx = Arrays.binarySearch(arr, 2); // idx=-5 (잘못된 결과)
+   
+   Arrays.sort(arr); // 배열 arr을 정렬한다
+   System.out.println(Arrays.toString(arr)); // [0, 1, 2, 3, 4]
+   int idx = Arrays.binarySearch(arr, 2); // idx=2 (올바른 결과)
+   ```
+
    
