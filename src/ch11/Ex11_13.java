@@ -8,8 +8,8 @@ public class Ex11_13 {
 
     public static void main(String[] args) {
         
-        Set set = new TreeSet(); // ÀúÀåÇÒ ¶§ ÀÌ¹Ì Á¤·ÄÇÔ
-//      Set set = new HashSet(); -> Á¤·Ä ÇÊ¿ä
+        Set set = new TreeSet(); 
+//      Set set = new HashSet(); -> ì •ë ¬ X
         
         for(int i=0; set.size()<6; i++) {
             int num = (int)(Math.random()*45) + 1;
