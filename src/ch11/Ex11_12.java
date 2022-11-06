@@ -21,7 +21,7 @@ public class Ex11_12 {
         setB.add("7"); setB.add("8");
         System.out.println("B = " + setB);
         
-//      ±³ÁıÇÕ   
+//      êµì§‘í•©
 //      setA.retainAll(setB);
         Iterator it = setB.iterator();
         while(it.hasNext()) {
@@ -30,7 +30,7 @@ public class Ex11_12 {
                 setKyo.add(temp);
         }
 
-//      Â÷ÁıÇÕ
+//      ì°¨ì§‘í•©
 //      setA.removeAll(setB);
         it = setA.iterator();
         while(it.hasNext()) {
@@ -39,7 +39,7 @@ public class Ex11_12 {
                 setCha.add(temp);
         }
  
-//      ÇÕÁıÇÕ
+//      í•©ì¹©í•©
 //      setA.addAll(setB);
         it = setA.iterator();
         while(it.hasNext())
@@ -49,8 +49,8 @@ public class Ex11_12 {
         while(it.hasNext())
             setHab.add(it.next());
         
-        System.out.println("A ¡û B = " + setKyo);
-        System.out.println("A ¡ú B = " + setHab);
+        System.out.println("A âˆ© B = " + setKyo);
+        System.out.println("A âˆª B = " + setHab);
         System.out.println("A - B = " + setCha);
     }
     
