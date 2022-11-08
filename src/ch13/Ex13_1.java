@@ -3,8 +3,13 @@ package ch13;
 public class Ex13_1 {
 
     public static void main(String[] args) {
-        
-
+            ThreadEx1_1 t1 = new ThreadEx1_1(); // Thread의 자손 클래스의 인스턴스를 생성
+            
+            Runnable r = new ThreadEx1_2(); // Runnable을 구현한 클래스의 인스턴스를 생성
+            Thread t2 = new Thread(r); // 생성자 Thread(Runnable target)
+            
+            t1.start();
+            t2.start();
     }
 
 }
