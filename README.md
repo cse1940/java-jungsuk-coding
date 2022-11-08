@@ -2798,3 +2798,90 @@ for(int i=list.size()-1; i>=0; i--)
 
 - 싱글 쓰레드 프로세스 = 자원 + 쓰레드
 - 멀티 쓰레드 프로세스 = 자원 + 쓰레드 + 쓰레드 + ... + 쓰레드
+
+#### 1.2 멀티프로세스 vs 멀티쓰레드
+
+- 멀티 태스킹(멀티 프로세싱) : 동시에 여러 프로세스를 실행시키는 것
+
+- 멀티 쓰레딩 : 하나의 프로세스 내에 동시에 여러 쓰레드를 실행시키는 것
+
+  - 프로세스를 생성하는 것보다 쓰레드를 생성하는 비용이 적다.
+  - 같은 프로세스 내의 쓰레드들은 서로 자원을 공유한다.
+
+  ```java
+  2 프로세스 1 쓰레드 vs 1 프로세스 2 쓰레드
+  ```
+
+#### 1.3 멀티쓰레드의 장단점
+
+```java
+대부분의 프로그램이 멀티쓰레드로 작성되어 있다.
+    그러나, 멀티쓰레드 프로그래밍이 장점만 있는 것은 아니다.
+```
+
+- 장점
+  1. 시스템 자원을 보다 ```효율적```으로 사용할 수 있다.
+  2. 사용자에 대한 ```응답성(responseness)이 향상```된다.
+  3. 작업이 분리되어 ```코드가 간결```해 진다.
+  4. 즉, ```여러 모로 좋다.```
+- 단점
+  1. 동기화에 주의해야 한다.
+  2. 교착상태(dead-lock)가 발생하지 않도록 주의해야 한다.
+  3. 각 쓰레드가 효율적으로 고르게 실행될 수 있게 해야 한다.
+  4. 즉, ```프로그래밍할 때 고려해야 할 사항들이 많다.```
+
+#### 1.4 쓰레드의 구현과 실행
+
+1. Thread클래스를 상속
+
+``` java
+class MyThread extends Thread {
+    public void run() { // Thread클래스의 run()을 오버라이딩
+    	/* 작업 내용 */
+    }
+}
+```
+
+2. Runnable인터페이스를 구현 (주로 사용)
+
+```java
+class MyThread2 implements Runnable {
+    public void run() { // Runnable인터페이스의 추상메서드 run()을 구현
+        /* 작업 내용 */
+    }
+}
+```
+
+```java
+MyThread t1 = new MyThread(); // 쓰레드의 생성
+t1.start(); // 쓰레드의 실행
+```
+
+```java
+Runnable r = new MyThread2();
+Thread t2 = new Thread(r); // Thread(Runnable r)
+//	Thread t2 = new Thread(new MyThread2());
+t2.start();
+```
+
+#### 1.5 start()와 run()
+
+```java
+class ThreadTest {
+    public static void main(String args[]) {
+        MyThread t1 = new MyThread();
+        t1.start();
+    }
+}
+```
+
+```java
+class MyThread extends Thread {
+    public void run() {
+        // ...
+    }
+}
+```
+
+
+
