@@ -8,8 +8,8 @@ public class Ex13_1 {
             Runnable r = new ThreadEx1_2(); // Runnable을 구현한 클래스의 인스턴스를 생성
             Thread t2 = new Thread(r); // 생성자 Thread(Runnable target)
             
-            t1.start();
-            t2.start();
+            t1.start(); // 쓰레드 t1을 실행시킨다.
+            t2.start(); // 쓰레드 t2를 실행시킨다.
     }
 
 }
